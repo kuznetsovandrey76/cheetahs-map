@@ -1,19 +1,13 @@
 const googleMapsApiUrlParser = function(opts = {}) {
-  
+
   const apiKey = opts.apiKey;
   const libraries = opts.libraries || [];
   const client = opts.client;
   const URL = 'https://maps.googleapis.com/maps/api/js';
 
-  const googleVersion = '3.22';
-  let script = null;
-  let google = window.google = null;
-  let loading = false;
   let channel = null;
   let language = null;
   let region = null;
-
-  let onLoadEvents = [];
 
   const url = () => {
     let url = URL;
@@ -22,7 +16,6 @@ const googleMapsApiUrlParser = function(opts = {}) {
       callback: 'CALLBACK_NAME',
       libraries: libraries.join(','),
       client: client,
-      v: googleVersion,
       channel: channel,
       language: language,
       region: region
